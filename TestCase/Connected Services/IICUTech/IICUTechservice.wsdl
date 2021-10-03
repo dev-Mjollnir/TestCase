@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:ICUTech.Intf" name="IICUTechservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ICUTech.Intf">
+      <xs:complexType name="ArrayOfInteger">
+        <xs:complexContent mixed="false">
+          <xs:restriction base="soapenc:Array">
+            <xs:sequence />
+            <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" n1:arrayType="xs:int[]" ref="soapenc:arrayType" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfString">
+        <xs:complexContent mixed="false">
+          <xs:restriction base="soapenc:Array">
+            <xs:sequence />
+            <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" n1:arrayType="xs:string[]" ref="soapenc:arrayType" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="Login0Request">
+    <part name="UserName" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="IPs" type="xs:string" />
+  </message>
+  <message name="Login0Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="RegisterNewCustomer1Request">
+    <part name="Email" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="FirstName" type="xs:string" />
+    <part name="LastName" type="xs:string" />
+    <part name="Mobile" type="xs:string" />
+    <part name="CountryID" type="xs:int" />
+    <part name="aID" type="xs:int" />
+    <part name="SignupIP" type="xs:string" />
+  </message>
+  <message name="RegisterNewCustomer1Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetCustomerInfo2Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+  </message>
+  <message name="GetCustomerInfo2Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="UpdateCustomer3Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="ValuesArray" type="xs:string" />
+  </message>
+  <message name="UpdateCustomer3Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetVersion4Request" />
+  <message name="GetVersion4Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetLocations5Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+  </message>
+  <message name="GetLocations5Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetCameras6Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+  </message>
+  <message name="GetCameras6Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="SetLocation7Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="IP" type="xs:string" />
+    <part name="Port" type="xs:int" />
+    <part name="MediaPort" type="xs:int" />
+  </message>
+  <message name="SetLocation7Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="SetCamera8Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="LocationName" type="xs:string" />
+    <part name="URL" type="xs:string" />
+    <part name="CameraId" type="xs:int" />
+  </message>
+  <message name="SetCamera8Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="SetAlarm9Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="Status" type="xs:int" />
+  </message>
+  <message name="SetAlarm9Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="PushRegisterDevice10Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="UDID" type="xs:string" />
+    <part name="DeviceID" type="xs:string" />
+    <part name="TypeId" type="xs:int" />
+    <part name="AllowNotification" type="xs:boolean" />
+  </message>
+  <message name="PushRegisterDevice10Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="PushMessage11Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="text" type="xs:string" />
+    <part name="FunctionPassword" type="xs:string" />
+    <part name="KindType" type="xs:int" />
+    <part name="KindID" type="xs:int" />
+  </message>
+  <message name="PushMessage11Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="SyncCameras12Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="CamerasCount" type="xs:int" />
+    <part name="CameraIds" type="ns1:ArrayOfInteger" />
+    <part name="CameraNames" type="ns1:ArrayOfString" />
+  </message>
+  <message name="SyncCameras12Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetNotifications13Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="UDID" type="xs:string" />
+    <part name="ResultType" type="xs:int" />
+    <part name="LimitFrom" type="xs:int" />
+    <part name="LimitTo" type="xs:int" />
+  </message>
+  <message name="GetNotifications13Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetNotificationsCount14Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="UDID" type="xs:string" />
+    <part name="ResultType" type="xs:int" />
+  </message>
+  <message name="GetNotificationsCount14Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="AddClip15Request">
+    <part name="EntityId" type="xs:int" />
+    <part name="UserName" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="cameraID" type="xs:int" />
+    <part name="clipID" type="xs:int" />
+    <part name="ClipLength" type="xs:int" />
+    <part name="ClipDate" type="xs:string" />
+  </message>
+  <message name="AddClip15Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetClips16Request">
+    <part name="EntityId" type="xs:int" />
+    <part name="UserName" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="ResultType" type="xs:int" />
+    <part name="cameraID" type="xs:int" />
+    <part name="DateFrom" type="xs:string" />
+    <part name="DateTo" type="xs:string" />
+    <part name="LimitFrom" type="xs:int" />
+    <part name="LimitTo" type="xs:int" />
+  </message>
+  <message name="GetClips16Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetClipsCount17Request">
+    <part name="EntityId" type="xs:int" />
+    <part name="UserName" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="ResultType" type="xs:int" />
+    <part name="cameraID" type="xs:int" />
+    <part name="DateFrom" type="xs:string" />
+    <part name="DateTo" type="xs:string" />
+  </message>
+  <message name="GetClipsCount17Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="DeleteNotification18Request">
+    <part name="EntityID" type="xs:int" />
+    <part name="Username" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="NotificationID" type="xs:int" />
+  </message>
+  <message name="DeleteNotification18Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="Encrypt19Request">
+    <part name="DataString" type="xs:string" />
+  </message>
+  <message name="Encrypt19Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="Crypt20Request">
+    <part name="EntityId" type="xs:int" />
+    <part name="UserName" type="xs:string" />
+    <part name="Password" type="xs:string" />
+    <part name="FuncPassword" type="xs:string" />
+  </message>
+  <message name="Crypt20Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <portType name="IICUTech">
+    <operation name="Login">
+      <input message="tns:Login0Request" />
+      <output message="tns:Login0Response" />
+    </operation>
+    <operation name="RegisterNewCustomer">
+      <input message="tns:RegisterNewCustomer1Request" />
+      <output message="tns:RegisterNewCustomer1Response" />
+    </operation>
+    <operation name="GetCustomerInfo">
+      <input message="tns:GetCustomerInfo2Request" />
+      <output message="tns:GetCustomerInfo2Response" />
+    </operation>
+    <operation name="UpdateCustomer">
+      <input message="tns:UpdateCustomer3Request" />
+      <output message="tns:UpdateCustomer3Response" />
+    </operation>
+    <operation name="GetVersion">
+      <input message="tns:GetVersion4Request" />
+      <output message="tns:GetVersion4Response" />
+    </operation>
+    <operation name="GetLocations">
+      <input message="tns:GetLocations5Request" />
+      <output message="tns:GetLocations5Response" />
+    </operation>
+    <operation name="GetCameras">
+      <input message="tns:GetCameras6Request" />
+      <output message="tns:GetCameras6Response" />
+    </operation>
+    <operation name="SetLocation">
+      <input message="tns:SetLocation7Request" />
+      <output message="tns:SetLocation7Response" />
+    </operation>
+    <operation name="SetCamera">
+      <input message="tns:SetCamera8Request" />
+      <output message="tns:SetCamera8Response" />
+    </operation>
+    <operation name="SetAlarm">
+      <input message="tns:SetAlarm9Request" />
+      <output message="tns:SetAlarm9Response" />
+    </operation>
+    <operation name="PushRegisterDevice">
+      <input message="tns:PushRegisterDevice10Request" />
+      <output message="tns:PushRegisterDevice10Response" />
+    </operation>
+    <operation name="PushMessage">
+      <input message="tns:PushMessage11Request" />
+      <output message="tns:PushMessage11Response" />
+    </operation>
+    <operation name="SyncCameras">
+      <input message="tns:SyncCameras12Request" />
+      <output message="tns:SyncCameras12Response" />
+    </operation>
+    <operation name="GetNotifications">
+      <input message="tns:GetNotifications13Request" />
+      <output message="tns:GetNotifications13Response" />
+    </operation>
+    <operation name="GetNotificationsCount">
+      <input message="tns:GetNotificationsCount14Request" />
+      <output message="tns:GetNotificationsCount14Response" />
+    </operation>
+    <operation name="AddClip">
+      <input message="tns:AddClip15Request" />
+      <output message="tns:AddClip15Response" />
+    </operation>
+    <operation name="GetClips">
+      <input message="tns:GetClips16Request" />
+      <output message="tns:GetClips16Response" />
+    </operation>
+    <operation name="GetClipsCount">
+      <input message="tns:GetClipsCount17Request" />
+      <output message="tns:GetClipsCount17Response" />
+    </operation>
+    <operation name="DeleteNotification">
+      <input message="tns:DeleteNotification18Request" />
+      <output message="tns:DeleteNotification18Response" />
+    </operation>
+    <operation name="Encrypt">
+      <input message="tns:Encrypt19Request" />
+      <output message="tns:Encrypt19Response" />
+    </operation>
+    <operation name="Crypt">
+      <input message="tns:Crypt20Request" />
+      <output message="tns:Crypt20Response" />
+    </operation>
+  </portType>
+  <binding name="IICUTechbinding" type="tns:IICUTech">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="Login">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#Login" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="RegisterNewCustomer">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#RegisterNewCustomer" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCustomerInfo">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetCustomerInfo" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="UpdateCustomer">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#UpdateCustomer" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetVersion">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetVersion" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetLocations">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetLocations" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCameras">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetCameras" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SetLocation">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#SetLocation" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SetCamera">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#SetCamera" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SetAlarm">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#SetAlarm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="PushRegisterDevice">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#PushRegisterDevice" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="PushMessage">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#PushMessage" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SyncCameras">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#SyncCameras" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetNotifications">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetNotifications" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetNotificationsCount">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetNotificationsCount" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="AddClip">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#AddClip" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetClips">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetClips" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetClipsCount">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#GetClipsCount" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DeleteNotification">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#DeleteNotification" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Encrypt">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#Encrypt" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Crypt">
+      <soap:operation soapAction="urn:ICUTech.Intf-IICUTech#Crypt" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:ICUTech.Intf-IICUTech" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IICUTechservice">
+    <port name="IICUTechPort" binding="tns:IICUTechbinding">
+      <soap:address location="http://isapi.icu-tech.com/icutech-test.dll/soap/IICUTech" />
+    </port>
+  </service>
+</definitions>
